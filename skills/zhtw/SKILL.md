@@ -14,7 +14,8 @@ instead of assuming a client-specific tool prefix.
 
 ## Prerequisite
 
-The zhtw-mcp executable must be installed on the PATH inherited by Codex.
+The zhtw-mcp executable must be installed on the PATH inherited by the client
+(Codex or Claude Code).
 If the server is unavailable, report the missing prerequisite and point to
 the repository's installation instructions. Do not claim validation passed
 without a tool result.

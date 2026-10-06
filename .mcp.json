@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "zhtw-mcp": {
+      "type": "stdio",
+      "command": "zhtw-mcp",
+      "args": []
+    }
+  }
+}

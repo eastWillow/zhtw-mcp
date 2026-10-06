@@ -252,6 +252,45 @@ Other MCP clients may use `.mcp.json` in your project root:
 
 Replace `/path/to/zhtw-mcp` with the actual binary path (e.g., `target/release/zhtw-mcp`).
 
+### Claude Code plugin
+
+The Claude Code plugin bundles the MCP server configuration and the same
+zh-TW writing skill as the Codex plugin below. Install the binary first and
+put it on the `PATH` inherited by Claude Code. Installing the plugin does
+not download or compile the Rust executable. Use either the plugin or the
+manual `claude mcp add` registration above to avoid duplicate servers.
+
+Install from this GitHub repository:
+
+```bash
+claude plugin marketplace add eastWillow/zhtw-mcp
+claude plugin install zhtw-mcp@zhtw-plugins
+```
+
+For local development after cloning this repository:
+
+```bash
+claude --plugin-dir .
+```
+
+In Claude Code, use `/mcp` to inspect the server connection and
+`/zhtw-mcp:zhtw` to invoke the writing skill. Ask it to check
+`這個軟件使用默認配置。`, then request `lexical_safe` corrections or a
+Markdown review that excludes code blocks.
+
+To remove the installed plugin and marketplace:
+
+```bash
+claude plugin uninstall zhtw-mcp@zhtw-plugins
+claude plugin marketplace remove zhtw-plugins
+```
+
+Claude Code reads `.claude-plugin/plugin.json`, root `.mcp.json`, and
+`skills/zhtw/SKILL.md`. Codex uses root `plugin.json` and `mcp.json` instead;
+both MCP configurations launch the same executable. See the
+[official plugin reference](https://code.claude.com/docs/en/plugins-reference)
+for the Claude Code bundle format.
+
 ### Codex plugin
 
 This repository also provides an Agent Plugins 1.0 bundle for Codex, with

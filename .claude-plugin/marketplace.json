@@ -1,0 +1,13 @@
+{
+  "name": "zhtw-plugins",
+  "description": "Traditional Chinese (Taiwan) writing validation with zhtw-mcp.",
+  "owner": {
+    "name": "eastWillow"
+  },
+  "plugins": [
+    {
+      "name": "zhtw-mcp",
+      "source": "./"
+    }
+  ]
+}
