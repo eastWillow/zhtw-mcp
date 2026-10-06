@@ -1,0 +1,12 @@
+{
+  "name": "zhtw-plugins",
+  "plugins": [
+    {
+      "name": "zhtw-mcp",
+      "source": {
+        "source": "local",
+        "path": "."
+      }
+    }
+  ]
+}

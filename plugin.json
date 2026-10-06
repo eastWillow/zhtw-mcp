@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "zhtw-mcp",
+  "version": "0.1.0",
+  "description": "Lint and normalize Traditional Chinese (Taiwan) text using Taiwan MoE conventions.",
+  "repository": "https://github.com/eastWillow/zhtw-mcp",
+  "license": "MIT",
+  "keywords": ["traditional-chinese", "zh-tw", "linting", "localization", "mcp"]
+}

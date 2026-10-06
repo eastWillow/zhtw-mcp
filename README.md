@@ -252,6 +252,52 @@ Other MCP clients may use `.mcp.json` in your project root:
 
 Replace `/path/to/zhtw-mcp` with the actual binary path (e.g., `target/release/zhtw-mcp`).
 
+### Codex plugin
+
+This repository also provides an Agent Plugins 1.0 bundle for Codex, with
+MCP configuration and a zh-TW writing skill. The format is supported by
+[Codex 0.160.1](https://github.com/openai/codex/releases/tag/rust-v0.160.1).
+Use that version or a newer compatible release.
+
+First install the binary using one of the methods above and put it on the
+`PATH` inherited by Codex. The plugin launches `zhtw-mcp` by name; installing
+the plugin does not download or compile the Rust executable. Avoid registering
+the same server through both the plugin and `codex mcp add`.
+
+Install the marketplace and plugin from this GitHub repository:
+
+```bash
+codex plugin marketplace add eastWillow/zhtw-mcp --ref main
+codex plugin add zhtw-mcp@zhtw-plugins
+```
+
+For a reproducible installation, replace `main` with the commit or release
+tag you intend to use. For local development after cloning this repository:
+
+```bash
+codex plugin marketplace add .
+codex plugin add zhtw-mcp@zhtw-plugins
+```
+
+Start a new Codex session, ask it to use the zhtw skill to check
+`這個軟件使用默認配置。`, and confirm that it calls the MCP tool and reports
+Taiwan terminology suggestions. Ask for `lexical_safe` corrections to apply
+deterministic fixes, or for Markdown review to preserve code blocks.
+
+To remove the plugin:
+
+```bash
+codex plugin remove zhtw-mcp@zhtw-plugins
+codex plugin marketplace remove zhtw-plugins
+```
+
+For MCP-only integration, use the `codex mcp add` command above. Codex stores
+that registration in `~/.codex/config.toml`; the plugin's root `mcp.json`
+is read through the plugin loader. See the
+[Agent Plugins manifest schema](https://github.com/agentplugins/agent-plugins-spec/blob/main/schemas/1.0.0/plugin.schema.json)
+and [MCP schema](https://github.com/agentplugins/agent-plugins-spec/blob/main/schemas/1.0.0/mcp.schema.json)
+for the bundle format.
+
 ### CLI quick start
 
 ```bash
